@@ -1,11 +1,14 @@
 import Styles from './modal.module.css'
 
-const Modal = () => {
+const Modal = (props) => {
+    const closeModalHandler = () => {
+        props.closeModal()
+    }
     return (
         <div className={Styles.modal}>
             <div className={Styles.modalContent}>
-                <p>Выбранный товар помещен в корзину</p>
-                <button>Закрыть</button>
+                <p>Выбранный товар "{props.title}" помещен в корзину</p>
+                <button onClick={ closeModalHandler }>Закрыть</button>
             </div>
         </div>
     )

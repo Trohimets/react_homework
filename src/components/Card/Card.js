@@ -2,8 +2,9 @@ import Styles from './card.module.css'
 
 const Card = (props) => {
   const onClickHandler = () => {
-    console.log('123')
-  }
+    props.openModal()
+    props.setTitle(props.title)
+  };
     return (
         <div className={Styles['cards_wrapper']}>
       <div className={Styles['card']}>
