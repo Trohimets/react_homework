@@ -1,18 +1,14 @@
 import Styles from './card.module.css'
 
 const Card = (props) => {
-  const onClickHandler = () => {
-    props.openModal()
-    props.setTitle(props.title)
-  };
-    return (
+  const {image, title, desc} = props;
+  return (
         <div className={Styles['cards_wrapper']}>
-      <div className={Styles['card']}>
-        <img src={ props.image }>
+        <div className={Styles['card']}>
+        <img src={ image } className={Styles['card_img']}>
         </img>
-        <h2>{ props.title }</h2>
-        <p>{ props.desc }</p>
-        <button onClick={ onClickHandler }>Купить</button>
+        <h2 className={Styles['card_h2']}>{ title }</h2>
+        <p className={Styles['card_p']}>{ desc }</p>
       </div>
     </div>
     ) 
