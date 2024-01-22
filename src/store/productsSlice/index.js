@@ -1,6 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-
 const initialState = {
     list: []
 }
@@ -14,7 +13,7 @@ const productsSlice = createSlice({
         },
         deleteSingleProduct: (state, action) => {
             const { id } = action.payload;
-            state.list.filter(product => product.id !== id)
+            state.list = state.list.filter(product => product.id !== id);
         }
     }
 })

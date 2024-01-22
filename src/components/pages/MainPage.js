@@ -15,16 +15,17 @@ export const MainPage = () => {
 
     const deleteSingleProductHandler = (id) => () => {
         dispatch(deleteSingleProduct({id}))
+        console.log(storeProducts)
     }
 
     return (<div>
-        {storeProducts.length > 0 &&storeProducts.map((product) => {
-            return (<>
+        {storeProducts.length > 0 && storeProducts.map((product, index) => 
+          <div key={index}>
             <h2>{product.title}</h2>
             <div>{product.price}</div>
             <button onClick={deleteSingleProductHandler(product.id)}>Удалить товар</button>
-            </>
-            )
-        })}
+            </div>
+            
+        )}
     </div>)
 }
