@@ -1,3 +1,9 @@
+import { MainWrapper } from './main.styled'
+
 export const Main = () => {
-    return <div>Главная страница</div>
+    useEffect(()=> {}, [])
+
+    return <MainWrapper>
+Я главная страница
+    </MainWrapper>
 }
