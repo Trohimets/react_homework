@@ -1,15 +1,16 @@
 {
-  "name": "react_homework",
-  "version": "1.0.0",
-  "description": "node homework",
-  "main": "mkdir.js",
-  "scripts": {
-    "mkdir": "node mkdir.js",
-    "mkfile": "node mkfile.js",
-    "writefile": "node writeFile.js",
-    "writelogfile": "node writeLogFile.js"
-  },
-  "author": "Konstantin Trohimets",
-  "license": "ISC",
-  "type": "module"
+	"dependencies": {
+		"express": "^4.18.2",
+		"pg": "^8.11.3"
+	},
+	"name": "nodestub",
+	"version": "1.0.0",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"author": "",
+	"license": "ISC",
+	"description": "",
+	"type": "module"
 }
