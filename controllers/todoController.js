@@ -8,16 +8,32 @@ export class TodoController {
 	}
 
 	static async createTodo(req, res) {
-		const { todoId, title } = req.body;
+		console.log(req.body)
+		const { title, description } = req.body;
 
-		if (!todoId || !title) {
+		if (!description || !title) {
 			res.status(400).send({ message: 'Не переданы обязательные поля' });
 		}
-
-		res.status(200).send();
+		await Todos.createTodos(title, description)
+		res.status(200).send('Запись добавлена');
 	}
 
-	static async patchTodoById(req, res) {}
+	static async patchTodoById(req, res) {
+		console.log(req.body)
+		const { title, description, completed, tag_id } = req.body;
+		try{
+			if (!description && !title && !completed && !tag_id ) {
+				res.status(400).send({ message: 'Не переданы обязательные поля' });
+			}
+			const updatedTodo = await Todos.findByIdAndUpdate(todoId, { title, description }, { new: true });
+			if (!updatedTodo) {
+				return res.status(404).send({ message: 'Todo не найден' });
+			  }
+			res.status(200).json(updatedTodo);
+		} catch (err) {
+		res.status(500).send({ message: err.message });
+	  	}
+	}
 
 	static async deleteTodoById(req, res) {
 		const { todoId } = req.params;

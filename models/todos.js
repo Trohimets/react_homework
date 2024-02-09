@@ -7,12 +7,10 @@ export class Todos {
 		return allTodosDBResponse.rows;
 	}
 
-	static async createTodo(title, description, completed, tagsId) {
-		pool.query('insert into todos(title, description, completed, tags_id) values($1, $2, $3, $4)', [
+	static async createTodos(title, description) {
+		await pool.query('insert into todos(title, description, completed, tags_id) values($1, $2, false, 1)', [
 			title,
-			description,
-			completed,
-			tagsId,
+			description
 		]);
 	}
 
