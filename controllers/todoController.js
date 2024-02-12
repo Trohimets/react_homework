@@ -8,7 +8,6 @@ export class TodoController {
 	}
 
 	static async createTodo(req, res) {
-		console.log(req.body)
 		const { title, description } = req.body;
 
 		if (!description || !title) {
@@ -19,20 +18,8 @@ export class TodoController {
 	}
 
 	static async patchTodoById(req, res) {
-		console.log(req.body)
-		const { title, description, completed, tag_id } = req.body;
-		try{
-			if (!description && !title && !completed && !tag_id ) {
-				res.status(400).send({ message: 'Не переданы обязательные поля' });
-			}
-			const updatedTodo = await Todos.findByIdAndUpdate(todoId, { title, description }, { new: true });
-			if (!updatedTodo) {
-				return res.status(404).send({ message: 'Todo не найден' });
-			  }
-			res.status(200).json(updatedTodo);
-		} catch (err) {
-		res.status(500).send({ message: err.message });
-	  	}
+		const { todoId } = req.params;
+		await Todos.updateTodose(req, res, todoId);
 	}
 
 	static async deleteTodoById(req, res) {

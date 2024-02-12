@@ -3,10 +3,9 @@ import { todoRouter } from './routes/todoRouter.js';
 import bodyParser from 'body-parser';
 
 const server = express();
-
-server.use('/todos', todoRouter);
-server.use(bodyParser.urlencoded({ extended: true }));
 server.use(express.json())
+server.use('/todos', todoRouter);
+
 server.listen(9500, () => {
 	console.log('listening on port 9500');
 });

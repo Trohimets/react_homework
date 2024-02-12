@@ -5,5 +5,5 @@ export const todoRouter = Router();
 
 todoRouter.get('/', TodoController.getAllTodos);
 todoRouter.post('/', TodoController.createTodo);
-todoRouter.patch('/', TodoController.patchTodoById);
+todoRouter.patch('/:todoId', TodoController.patchTodoById);
 todoRouter.delete('/:todoId', TodoController.deleteTodoById);
